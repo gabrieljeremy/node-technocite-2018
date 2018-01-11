@@ -77,11 +77,13 @@ const numbers = [1,2,3,4,5,6,7,8]
 // Afficher les numéros pairs
 // console.log(numbers.filter(item => item % 2 === 0))
 
-// // Afficher les nombres impairs
-// console.log(numbers.filter(item => item % 2 !== 0))
+// Afficher les nombres impairs
+console.log(numbers.filter(item => item % 2 !== 0))
 
 // ********************
 
-// .
+// .reduce manipule un array et me renvoie ce que je veux
+// .map boucle dans un array et renvoie un nouvel array
+// .filter cherche dans l'array et renvoie un nouvel array sous une condition
 
 // ********************
