@@ -9,7 +9,7 @@ const routes = [ // Array comprenant les différentes routes menant vers les dif
 const router = (req, res) => { // le lien entre la page et le serveur
     let route = routes.findIndex(item => item.url === req.url) // vérifie si l'url amène vers une page existante
     if (route !== -1) { // indique la route de la page demandée et passe au fichier JS l'exécution de req et le traitement de res
-        require (`./routes/${routes[route].controller}`)(req, res)  // ex : /routes/home.html
+        require (`./routes/${routes[route].controller}`)(req, res)  // ex : /routes/home.html et exécute le
     } else {
         require ('./routes/error')(req, res)
     }

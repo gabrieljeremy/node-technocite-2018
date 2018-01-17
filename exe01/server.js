@@ -88,3 +88,11 @@ console.log(numbers.filter(item => item % 2 !== 0))
 // .filter cherche dans l'array et renvoie un nouvel array sous une condition
 
 // ********************
+
+// Cloner un array
+
+var arr1 = ['t', 'a', 'b']
+var arr2 = []
+for (var i = 0, l = arr1.length; i < l; i++) {
+    arr2.push(arr1[i])
+}
