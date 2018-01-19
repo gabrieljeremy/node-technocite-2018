@@ -11,7 +11,7 @@ app.engine('hbs', hbs.express4({ // initialisation du moteur
 app.set('view engine', 'hbs') // lancer le moteur
 app.set('views', `${__dirname}/views`) // dossier dans lequel je vais retrouver mes vues
 // Setup static folder for static rendering on my server side
-app.use(express.static(`${__dirname}/public)`))
+app.use(express.static(`${__dirname}/public`))
 app.use('/', routes) // Quand tu as une url, utilise le fichier route --> use : middleware : bout de code
 
 module.exports = app // export de l'objet app
