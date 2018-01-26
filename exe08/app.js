@@ -5,6 +5,13 @@ const hbs = require('express-hbs')
 const bodyParser = require('body-parser')
 const helpers = require('./helpers')
 const expressValidator = require('express-validator')
+const cookieParser = require('cookie-parser')
+const session = require('express-session')
+const sessionStore = new session.MemoryStore // initialise la session en mémoire
+const passport = require('passport') // et npm install passport-local qui va le require plus tard
+const mongoose = require ('mongoose')
+const User = mongoose.model('User')
+
 // View engine rendering setup
 app.engine('hbs', hbs.express4({ // initialisation du moteur
     partialsDir : [`${__dirname}/views/partials`],
@@ -21,6 +28,27 @@ app.use(bodyParser.urlencoded({extended:true}))
 
 // Après avoir parsé l'url : on utilise l'express validator
 app.use(expressValidator())
+
+// Cookie management
+app.use(cookieParser('secret'))
+
+// Session management
+app.use(session({
+    cookie:{maxAge:60000},
+    store: sessionStore,
+    saveUninitialized:true,
+    resave:true,
+    secret:'secret'
+}))
+
+// Init passport
+passport.use(User.createStrategy())
+passport.serializeUser(User.serializeUser())
+passport.deserializeUser(User.deserializeUser())
+app.use(passport.initialize())
+app.use(passport.session())
+
+// Validator
 
 app.use('/', routes) // Quand tu as une url, utilise le fichier route --> use : middleware : bout de code
 

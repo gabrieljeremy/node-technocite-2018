@@ -4,12 +4,12 @@ Error ; {{error.msg}}<br />
 <form action="/register" class="form" method="POST">
     <h2>Register</h2>
     <label for="name">Name :</label>
-    <input type="text" value={{user.name}}>
+    <input type="text"  name="name" id="name" value={{user.name}}>
     <label for="email">Email :</label>
-    <input type="email" value={{user.email}}>
+    <input type="email"  name="email" id="email" value={{user.email}}>
     <label for="password">Password :</label>
-    <input type="password" value={{user.password}}>
+    <input type="password" name="password" id="password" value={{user.password}}>
     <label for="password-confirm">Confirm password :</label>
-    <input type="password" value={{user.password-confirm}}>
+    <input type="password" name="password-confirm" id="password-confirm" value={{user.password-confirm}}>
     <input type="submit" value="register" class="button">
 </form>

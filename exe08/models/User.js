@@ -18,6 +18,6 @@ const schema = new mongoose.Schema({
     }
 })
 
-schema.plugin(passportLocalMongoose, {usernameField : 'email'})
+schema.plugin(passportLocalMongoose, {usernameField : 'email'}) // amène des modèles supplémentaires au schema
 
 module.exports = mongoose.model('User', schema)
