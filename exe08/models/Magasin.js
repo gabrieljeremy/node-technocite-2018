@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+
 const schema = new mongoose.Schema({ // initialize a new instance
     name : {
         type: String,
@@ -29,8 +30,13 @@ const schema = new mongoose.Schema({ // initialize a new instance
             type: String,
             required: 'Vous devez fournir une adresse'
         }
-
-    }
+    },
+    products: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Product'
+        }
+    ]
 })
 
 module.exports = mongoose.model('Magasin', schema)

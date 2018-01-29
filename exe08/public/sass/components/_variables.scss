@@ -1,0 +1,54 @@
+/* GRID */
+
+$container: 1200px;
+
+/* FONTS FAMILY */
+
+$font-family-base: 'Roboto', sans-serif;
+$font-family-title: 'Raleway', sans-serif;
+
+/* FONTS SIZE */
+
+$font-size-base: 18px;
+
+$font-size-h1: 4rem;
+$font-size-h2: 3rem;
+$font-size-h3: 2.5rem;
+$font-size-h4: 2rem;
+
+$menu-font-size: 1.1rem;
+$button-font-size: 1.5rem;
+$icone-font-size: 2.5rem;
+
+/* COLORS */
+
+$color-primary: #d61e3a;
+$color-primary-light: lighten($color-primary, 10%);
+$color-secondary: #17191c;
+$color-tertiary: #fff;
+
+$background-color-input: #fff;
+
+$btn-color-1: #809f08;
+$btn-color-2: #089a9f;
+$btn-color-3: #bf567d;
+$btn-color-4: #cf3427;
+
+$background-color-footer: #fdece5;
+
+$form-input-border-color: #555;
+
+$hn-2-small-font-size: 3.5rem;
+
+/* PADDING */
+
+$padding-section: 2rem 0;
+$padding-container: 0 1.25rem;
+$padding-button: 0.5rem 1.5rem;
+
+/* MARGIN */
+
+$margin-p: 0 0 1.25rem;
+$margin-h1: 1.25rem 0;
+$margin-h2: 0 0 1.5rem;
+$margin-h3: 0 0 1rem;

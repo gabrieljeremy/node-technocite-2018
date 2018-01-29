@@ -3,6 +3,7 @@ const router = express.Router() // crée un objet router qui va chercher la fonc
 const pagesController = require(`${process.cwd()}/controllers/pagesController`)
 const magasinsController = require(`${process.cwd()}/controllers/magasinsController`)
 const usersController = require(`${process.cwd()}/controllers/usersController`)
+const productsController = require(`${process.cwd()}/controllers/productsController`)
 const authenticationController = require(`${process.cwd()}/controllers/authenticationController`)
 // router.get('/', (req, res) => {
 //     res.send('Hello home')
@@ -22,6 +23,11 @@ router.post('/magasins/add/:id',
     magasinsController.resize,
     magasinsController.updateMagasin)
 router.get('/magasins/:id/edit', magasinsController.editMagasin)
+
+router.get('/addProduct', productsController.addProduct)
+router.post('/addProduct', productsController.createProduct)
+
+router.get('/magasins/:id/delete', magasinsController.deleteMagasin)
 router.get('/about', pagesController.about)
 
 router.post('/login', authenticationController.login)

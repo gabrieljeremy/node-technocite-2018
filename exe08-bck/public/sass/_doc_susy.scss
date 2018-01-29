@@ -1,0 +1,73 @@
+ul {
+    padding: 0;
+    margin: 0;
+    list-style-type:none;
+  }
+img {
+    max-width: 100%;
+}
+$susy: (
+    columns: 12,   // On indique à Susy d'utiliser 12 colonnes
+    global-box-sizing: border-box   // Utiliser border-box
+);
+// on inclut les propriétés border-box  
+@include border-box-sizing;
+
+// On indique d'abord la largeur de notre élément conteneur
+.container {
+	@include container (1120px);
+}
+.content {
+    /* Styles pour le mobile */ 
+
+    /* Styles pour le desktop */
+    @media (min-width: 700px) {
+        @include span(8); // Indique à Susy que content fait 8 colonnes
+    }
+}
+.sidebar {
+    /* Styles pour le mobile */ 
+
+    /* Styles pour le desktop */
+    @media (min-width: 700px) {
+        @include span(4 last); // Le sidebar fait 4 colonnes et c'est le dernier élément de la rangée:
+    }
+}
+.social {
+    /* Ajoute un padding de 19px de chaque côté du container .social */
+    padding: gutter();
+    /* On ajoute un clearfix car tous les éléments enfants sont flottés */
+    @include clearfix();
+    .social_list-item {
+      /* Indique à Susy qu'il y a 10 items, et que chacun prend 1 colonne */
+      @include gallery(1 of 10);
+      /* Une autre façon de dire à Susy que c'est le dernier item de la rangée */
+      &:last-child {
+        @include last;
+      }
+    }
+}
+.social2 {
+    padding: gutter();
+    @include clearfix();
+    .social_list-item {
+        @include gallery(2 of 10);
+        margin-bottom: gutter(10); 
+        @media (min-width: 700px) {
+            @include gallery(1 of 10);
+            margin-bottom: 0;
+        }
+    }
+}
+/* Travailler avec des grilles asymétriques 
+$susy : (
+  columns: 2 1, 
+  output: isolate,
+)
+.content {
+  @include span(1 first); 
+}
+.content {
+  @include span(1 first); 
+}
+*/

@@ -4,7 +4,7 @@ const routes = require(`${process.cwd()}/routes`)
 const hbs = require('express-hbs')
 const bodyParser = require('body-parser')
 const helpers = require('./helpers')
-const expressValidator = require('express-validator')
+const expressValidator = require('express-validator') // permet de créer un validator pour l'utiliser dans express
 const cookieParser = require('cookie-parser')
 const session = require('express-session')
 const sessionStore = new session.MemoryStore // initialise la session en mémoire
@@ -49,6 +49,11 @@ app.use(passport.initialize())
 app.use(passport.session())
 
 // Validator
+app.use((req, res, next) => {
+    res.locals.user = req.user // locals : permet d'avoir un accès global dans mes vues
+    res.locals.authenticated = req.isAuthenticated()
+    next()
+})
 
 app.use('/', routes) // Quand tu as une url, utilise le fichier route --> use : middleware : bout de code
 

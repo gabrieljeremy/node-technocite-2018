@@ -1,0 +1,17 @@
+<h2>Add product</h2>
+<form action="/addProduct" class="card" method="POST">
+    <label for="name">
+        Name :
+        <input type="text" name="name" id="name" value="{{product.name}}">
+    </label>
+    <label for="description">
+        Description :
+        <textarea name="description" id="description">{{product.description}}</textarea>
+    </label>
+    <label for="price">
+        Price :
+        <input type="text" name="price" id="price" value="{{product.price}}">
+    </label>
+    <input type="submit" name="Ajout du produit">
+</form>
+

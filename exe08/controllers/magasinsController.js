@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const Magasin = mongoose.model('Magasin')
+const Product = mongoose.model('Product')
 const multer = require('multer')
 const jimp = require('jimp')
 const uuid = require('uuid')
@@ -27,6 +28,10 @@ exports.editMagasin = async (req, res) => {
 exports.updateMagasin = async (req, res) => {
     const magasin = await Magasin.findByIdAndUpdate({_id : req.params.id}, req.body, { new:true }).exec() // exec() : exécute la promesse sans attendre la réponse de Mongo et new:true : renvoie l'objet modifié au lieu de l'original (renvoie la valeur)
     res.redirect(`/magasins/${magasin.slug}`)
+}
+exports.deleteMagasin = async (req, res) => {
+    const magasin = await Magasin.findByIdAndRemove({_id : req.params.id}, req.body)
+    res.redirect('/')
 }
 
 const multerOptions = {
